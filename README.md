@@ -66,17 +66,5 @@ The survey is designed to collect preferences and opinions that can help underst
 
 The collected responses focus on:
 
-```text
-Student Preferences
-        +
-Teacher Preferences
-        +
-Course & Lab Constraints
-        +
-Resource Availability
-        +
-Workload
-        +
-Fairness Preferences
-        ↓
-🤖 AI Routine Generation
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a90d966b-12a3-455c-a124-694540a620cf" />
+

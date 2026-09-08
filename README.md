@@ -1,10 +1,6 @@
 # ⚖️ Fairness-Aware AI Routine Generator
 
 <p align="center">
-  <img src="assets/01_banner.png" alt="Fairness-Aware AI Routine Generator" width="80%">
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Research-AI%20%26%20Fairness-6C63FF?style=for-the-badge">
   <img src="https://img.shields.io/badge/University-Scheduling-4285F4?style=for-the-badge">
   <img src="https://img.shields.io/badge/Survey-Google%20Forms-34A853?style=for-the-badge&logo=googleforms&logoColor=white">
@@ -42,10 +38,6 @@
 ---
 
 ## 🧠 About the Research
-
-<p align="center">
-  <img src="assets/02_about-ai.png" alt="AI and academic scheduling" width="50%">
-</p>
 
 **Fairness-Aware AI Routine Generator** is a research project focused on exploring how Artificial Intelligence can be used to support university academic routine generation.
 

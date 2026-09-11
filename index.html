@@ -24,7 +24,12 @@
     }
 
     a {
+      color: #2563eb;
       text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .container {
@@ -122,11 +127,21 @@
       box-shadow: 0 10px 25px rgba(0,0,0,.08);
     }
 
-    .qr-card img {
-      width: 230px;
+    /* QR CODE */
+
+    .qr-image {
+      width: 250px;
       max-width: 100%;
       display: block;
       margin: 0 auto 15px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .qr-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
     }
 
     .qr-card h3 {
@@ -138,6 +153,8 @@
       color: #667085;
       min-height: 55px;
     }
+
+    /* FORM BUTTON */
 
     .form-link {
       display: inline-block;
@@ -155,6 +172,89 @@
     .form-link:hover {
       background: #1d4ed8;
       text-decoration: none;
+    }
+
+    /* =========================
+       QR FULLSCREEN MODAL
+    ========================= */
+
+    .qr-modal {
+      display: none;
+      position: fixed;
+      z-index: 99999;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.90);
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+    .qr-modal.active {
+      display: flex;
+    }
+
+    .qr-modal-content {
+      position: relative;
+      background: white;
+      width: min(600px, 95vw);
+      max-height: 95vh;
+      overflow: auto;
+
+      border-radius: 22px;
+      padding: 30px 25px;
+      text-align: center;
+
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    .qr-modal-content h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+    }
+
+    .qr-modal-content img {
+      width: min(500px, 82vw);
+      height: min(500px, 82vw);
+
+      object-fit: contain;
+      display: block;
+      margin: auto;
+
+      image-rendering: crisp-edges;
+    }
+
+    .qr-modal-content p {
+      margin: 15px 0 0;
+      color: #667085;
+      font-size: 15px;
+    }
+
+    .qr-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+
+      width: 40px;
+      height: 40px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: #f3f4f6;
+      color: #1f2937;
+
+      font-size: 20px;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .qr-close:hover {
+      background: #e5e7eb;
     }
 
     /* =========================
@@ -183,8 +283,10 @@
       display: inline-block;
       margin-top: 5px;
       padding: 8px 16px;
+
       border: 1px solid #d1d5db;
       border-radius: 8px;
+
       background: white;
       cursor: pointer;
       font-weight: 600;
@@ -310,6 +412,15 @@
       #googleForm {
         height: 900px;
       }
+
+      .qr-modal-content {
+        padding: 25px 15px;
+      }
+
+      .qr-modal-content img {
+        width: min(450px, 85vw);
+        height: min(450px, 85vw);
+      }
     }
   </style>
 </head>
@@ -361,7 +472,7 @@
 
   <!-- =========================
        QR CODES
-  ========================= -->
+    ========================= -->
 
   <section class="qr-section">
 
@@ -369,25 +480,25 @@
 
     <p>
       Scan the QR code or click the form button to complete the survey.
-      The selected form will open directly on this page.
+      <br>
+      <strong>Tap a QR code to enlarge it.</strong>
     </p>
+
 
     <div class="qr-grid">
 
-      <!-- FORM 1 -->
+
+      <!-- =========================
+           FORM 1
+      ========================= -->
 
       <div class="qr-card">
-        <button
-          class="form-link"
-          onclick="openForm(
-            'https://forms.gle/t6geEWNL6K2n4ckg9?embedded=true',
-            'Form 1 — Student & Teacher Survey'
-          )">
-          Open Form 1
-        </button>
+
         <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9"
-          alt="Form 1 QR Code">
+          class="qr-image"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9"
+          alt="Form 1 QR Code"
+          onclick="openQR(this.src, 'Form 1')">
 
         <h3>📝 Form 1</h3>
 
@@ -397,23 +508,29 @@
           requirements, workload, constraints, and scheduling needs.
         </p>
 
-      </div>
-
-
-      <!-- FORM 2 -->
-
-      <div class="qr-card">
         <button
           class="form-link"
           onclick="openForm(
-            'https://forms.gle/S4JdgeX2pz97vjjb7?embedded=true',
-            'Form 2 — Time-Slot Rating Survey'
+            'https://forms.gle/t6geEWNL6K2n4ckg9?embedded=true',
+            'Form 1 — Student & Teacher Survey'
           )">
-          Open Form 2
+          Open Form 1
         </button>
+
+      </div>
+
+
+      <!-- =========================
+           FORM 2
+      ========================= -->
+
+      <div class="qr-card">
+
         <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8"
-          alt="Form 2 QR Code">
+          class="qr-image"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8"
+          alt="Form 2 QR Code"
+          onclick="openQR(this.src, 'Form 2')">
 
         <h3>📝 Form 2</h3>
 
@@ -423,12 +540,23 @@
           scenarios using a 1–5 rating scale.
         </p>
 
+        <button
+          class="form-link"
+          onclick="openForm(
+            'https://forms.gle/S4JdgeX2pz97vjjb7?embedded=true',
+            'Form 2 — Time-Slot Rating Survey'
+          )">
+          Open Form 2
+        </button>
+
       </div>
 
     </div>
 
 
-    <!-- EMBEDDED FORM VIEWER -->
+    <!-- =========================
+         EMBEDDED FORM VIEWER
+    ========================= -->
 
     <div id="formViewer">
 
@@ -829,7 +957,8 @@
           <td>
             <a
               href="https://github.com/JamshedSifat/Fairness-Aware-AI-Routine"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               Fairness-Aware-AI-Routine
             </a>
           </td>
@@ -840,7 +969,8 @@
           <td>
             <a
               href="https://forms.gle/JrhqNBQxXvNGiwZL9"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               Google Form 1
             </a>
           </td>
@@ -851,7 +981,8 @@
           <td>
             <a
               href="https://forms.gle/xUdQqM3RbbN2jkDb8"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               Google Form 2
             </a>
           </td>
@@ -886,7 +1017,83 @@
 </div>
 
 
+<!-- =========================
+     QR FULLSCREEN MODAL
+========================= -->
+
+<div
+  id="qrModal"
+  class="qr-modal"
+  onclick="closeQR()">
+
+  <div
+    class="qr-modal-content"
+    onclick="event.stopPropagation()">
+
+    <button
+      class="qr-close"
+      onclick="closeQR()"
+      aria-label="Close QR Code">
+      ✕
+    </button>
+
+    <h2 id="qrModalTitle">
+      Form 1
+    </h2>
+
+    <img
+      id="largeQR"
+      src=""
+      alt="Large QR Code">
+
+    <p>
+      📱 Scan this QR code to open the form
+    </p>
+
+  </div>
+
+</div>
+
+
 <script>
+
+  /* =========================
+     OPEN QR FULLSCREEN
+  ========================= */
+
+  function openQR(src, title) {
+
+    const modal = document.getElementById("qrModal");
+    const image = document.getElementById("largeQR");
+    const titleElement = document.getElementById("qrModalTitle");
+
+    image.src = src;
+    titleElement.textContent = title;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+  }
+
+
+  /* =========================
+     CLOSE QR FULLSCREEN
+  ========================= */
+
+  function closeQR() {
+
+    const modal = document.getElementById("qrModal");
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+
+  /* =========================
+     OPEN EMBEDDED FORM
+  ========================= */
 
   function openForm(url, title) {
 
@@ -895,6 +1102,7 @@
     const titleElement = document.getElementById("formTitle");
 
     iframe.src = url;
+
     titleElement.textContent = title;
 
     viewer.classList.add("active");
@@ -903,8 +1111,13 @@
       behavior: "smooth",
       block: "start"
     });
+
   }
 
+
+  /* =========================
+     CLOSE EMBEDDED FORM
+  ========================= */
 
   function closeForm() {
 
@@ -914,7 +1127,22 @@
     viewer.classList.remove("active");
 
     iframe.src = "";
+
   }
+
+
+  /* =========================
+     ESCAPE KEY
+  ========================= */
+
+  document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+      closeQR();
+      closeForm();
+    }
+
+  });
 
 </script>
 

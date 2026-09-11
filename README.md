@@ -21,18 +21,48 @@
 
 ## 📋 Participate in Our Research
 
-<p align="center">
-  <a href="https://forms.gle/59XJjqLhhGUA8yAPA">
-    <img src="https://img.shields.io/badge/📝%20Take%20the%20Survey-4285F4?style=for-the-badge" alt="Take the Survey">
-  </a>
-</p>
+<table align="center">
+<tr>
+<td align="center" width="50%">
+
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" alt="QR Code - Form 1" width="240">
+</a>
+
+<br>
+
+<strong>📝 Form 1</strong>
+
+<br><br>
+
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
+  🔗 Open Form 1
+</a>
+
+</td>
+
+<td align="center" width="50%">
+
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" alt="QR Code - Form 2" width="240">
+</a>
+
+<br>
+
+<strong>📝 Form 2</strong>
+
+<br><br>
+
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
+  🔗 Open Form 2
+</a>
+
+</td>
+</tr>
+</table>
 
 <p align="center">
-  <img src="assets/15_survey-qr.png" alt="QR Code for the research survey" width="300">
-</p>
-
-<p align="center">
-  <strong>📱 Scan the QR code to open the survey</strong>
+  <strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
 </p>
 
 ---
@@ -208,14 +238,66 @@ Your response can help us understand how students and teachers believe an AI-bas
   <img src="assets/11_survey.png" alt="Survey Call to Action" width="85%">
 </p>
 
-### 🔗 Survey Link
+### 🔗 Survey Links
 
-**Google Form:**  
-https://forms.gle/59XJjqLhhGUA8yAPA
+| Form | Link |
+|---|---|
+| 📝 Form 1 | https://forms.gle/JrhqNBQxXvNGiwZL9 |
+| 📝 Form 2 | https://forms.gle/xUdQqM3RbbN2jkDb8 |
 
-### 📱 QR Code
+## 📋 Participate in Our Research
 
-<img src="assets/15_survey-qr.png" alt="Survey QR Code" width="250">
+<table align="center">
+<tr>
+
+<td align="center" width="50%">
+
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" width="240" alt="Form 1 QR Code">
+</a>
+
+<br><br>
+
+<h3>📝 Form 1 — Student & Teacher Survey</h3>
+
+<p>
+Collects student and teacher preferences, requirements,
+workload, constraints, and scheduling needs.
+</p>
+
+<p>
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">🔗 Open Form 1</a>
+</p>
+
+</td>
+
+<td align="center" width="50%">
+
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" width="240" alt="Form 2 QR Code">
+</a>
+
+<br><br>
+
+<h3>📝 Form 2 — Time-Slot Rating Survey</h3>
+
+<p>
+Rates different university scheduling time-slot
+scenarios using a 1–5 rating scale.
+</p>
+
+<p>
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">🔗 Open Form 2</a>
+</p>
+
+</td>
+
+</tr>
+</table>
+
+<p align="center">
+<strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
+</p>
 
 ---
 
@@ -244,4 +326,5 @@ https://forms.gle/59XJjqLhhGUA8yAPA
 | Resource | Link |
 |---|---|
 | 📦 GitHub Repository | [Fairness-Aware-AI-Routine](https://github.com/JamshedSifat/Fairness-Aware-AI-Routine) |
-| 📝 Research Survey | [Google Form](https://forms.gle/59XJjqLhhGUA8yAPA) |
+| 📝 Research Form 1 | [Google Form 1](https://forms.gle/JrhqNBQxXvNGiwZL9) |
+| 📝 Research Form 2 | [Google Form 2](https://forms.gle/xUdQqM3RbbN2jkDb8) |

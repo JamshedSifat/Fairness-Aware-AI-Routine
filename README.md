@@ -23,49 +23,53 @@
 
 <table align="center">
 <tr>
+
 <td align="center" width="50%">
-
+<p>
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">🔗 Open Form 1</a>
+</p>
 <a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" alt="QR Code - Form 1" width="240">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" width="240" alt="Form 1 QR Code">
 </a>
-
-<br>
-
-<strong>📝 Form 1</strong>
 
 <br><br>
 
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
-  🔗 Open Form 1
-</a>
+<h3>📝 Form 1</h3>
+
+<p>
+<strong>Student & Teacher Survey</strong><br>
+For collecting student and teacher preferences,
+requirements, workload, constraints, and scheduling needs.
+</p>
 
 </td>
 
 <td align="center" width="50%">
-
+<p>
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">🔗 Open Form 2</a>
+</p>
 <a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" alt="QR Code - Form 2" width="240">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" width="240" alt="Form 2 QR Code">
 </a>
-
-<br>
-
-<strong>📝 Form 2</strong>
 
 <br><br>
 
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
-  🔗 Open Form 2
-</a>
+<h3>📝 Form 2</h3>
+
+<p>
+<strong>Time-Slot Rating Survey</strong><br>
+For rating different university scheduling
+time-slot scenarios using a 1–5 rating scale.
+</p>
 
 </td>
+
 </tr>
 </table>
 
 <p align="center">
-  <strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
+<strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
 </p>
-
----
 
 ## 🧠 About the Research
 

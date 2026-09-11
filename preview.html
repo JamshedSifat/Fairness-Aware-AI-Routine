@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>⚖️ Fairness-Aware AI Routine Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 94%);
+      margin: auto;
+      padding: 35px 0 70px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .hero {
+      text-align: center;
+      padding: 15px 10px 30px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    .hero h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: auto;
+      color: #667085;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .badges img {
+      height: 27px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 30px;
+      margin-top: 25px;
+      box-shadow: 0 7px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    /* =========================
+       QR SECTION
+    ========================= */
+
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-section > p {
+      color: #667085;
+    }
+
+    .qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 850px;
+      margin: 25px auto 0;
+    }
+
+    .qr-card {
+      background: #fafbfc;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .qr-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .qr-card img {
+      width: 230px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    .qr-card h3 {
+      margin: 5px 0;
+      font-size: 23px;
+    }
+
+    .qr-card p {
+      color: #667085;
+      min-height: 55px;
+    }
+
+    .form-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 20px;
+      border-radius: 9px;
+      background: #2563eb;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-size: 15px;
+    }
+
+    .form-link:hover {
+      background: #1d4ed8;
+      text-decoration: none;
+    }
+
+    /* =========================
+       EMBEDDED FORM
+    ========================= */
+
+    #formViewer {
+      display: none;
+      margin-top: 30px;
+    }
+
+    #formViewer.active {
+      display: block;
+    }
+
+    .viewer-header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .viewer-header h2 {
+      margin-bottom: 5px;
+    }
+
+    .close-button {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .close-button:hover {
+      background: #f3f4f6;
+    }
+
+    .iframe-wrapper {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    #googleForm {
+      width: 100%;
+      height: 1000px;
+      border: 0;
+      display: block;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .center-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 12px;
+    }
+
+    .research-image {
+      width: 80%;
+    }
+
+    .survey-image {
+      width: 85%;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .person-card {
+      text-align: center;
+      padding: 20px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+    }
+
+    .person-card img {
+      max-width: 85%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 15px 20px;
+      border-left: 5px solid #6366f1;
+      background: #f5f3ff;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #e5e7eb;
+      padding: 13px 15px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #667085;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .qr-grid,
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 22px 18px;
+      }
+
+      .research-image,
+      .survey-image {
+        width: 100%;
+      }
+
+      #googleForm {
+        height: 900px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="badges">
+
+      <img
+        src="https://img.shields.io/badge/Research-AI%20%26%20Fairness-6C63FF?style=for-the-badge"
+        alt="Research AI and Fairness">
+
+      <img
+        src="https://img.shields.io/badge/University-Scheduling-4285F4?style=for-the-badge"
+        alt="University Scheduling">
+
+      <img
+        src="https://img.shields.io/badge/Survey-Google%20Forms-34A853?style=for-the-badge&logo=googleforms&logoColor=white"
+        alt="Google Forms">
+
+      <img
+        src="https://img.shields.io/badge/Future%20Work-AI%20Software-00A67E?style=for-the-badge"
+        alt="Future Work">
+
+    </div>
+
+    <h1>⚖️ Fairness-Aware AI Routine Generator</h1>
+
+    <h2>
+      Exploring Fair, Personalized &amp; Intelligent University Routine Generation
+    </h2>
+
+    <p>
+      A research study exploring how Artificial Intelligence can support fair and
+      effective university academic scheduling by considering students, teachers,
+      courses, resources, workload, and scheduling constraints.
+    </p>
+
+  </header>
+
+
+  <!-- =========================
+       QR CODES
+  ========================= -->
+
+  <section class="qr-section">
+
+    <h2>📋 Participate in Our Research</h2>
+
+    <p>
+      Scan the QR code or click the form button to complete the survey.
+      The selected form will open directly on this page.
+    </p>
+
+    <div class="qr-grid">
+
+      <!-- FORM 1 -->
+
+      <div class="qr-card">
+
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9"
+          alt="Form 1 QR Code">
+
+        <h3>📝 Form 1</h3>
+
+        <p>
+          <strong>Student &amp; Teacher Survey</strong><br>
+          For collecting student and teacher preferences,
+          requirements, workload, constraints, and scheduling needs.
+        </p>
+
+        <button
+          class="form-link"
+          onclick="openForm(
+            'https://forms.gle/t6geEWNL6K2n4ckg9?embedded=true',
+            'Form 1 — Student & Teacher Survey'
+          )">
+          Open Form 1
+        </button>
+
+      </div>
+
+
+      <!-- FORM 2 -->
+
+      <div class="qr-card">
+
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8"
+          alt="Form 2 QR Code">
+
+        <h3>📝 Form 2</h3>
+
+        <p>
+          <strong>Time-Slot Rating Survey</strong><br>
+          For rating different university scheduling time-slot
+          scenarios using a 1–5 rating scale.
+        </p>
+
+        <button
+          class="form-link"
+          onclick="openForm(
+            'https://forms.gle/S4JdgeX2pz97vjjb7?embedded=true',
+            'Form 2 — Time-Slot Rating Survey'
+          )">
+          Open Form 2
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- EMBEDDED FORM VIEWER -->
+
+    <div id="formViewer">
+
+      <div class="viewer-header">
+
+        <h2 id="formTitle"></h2>
+
+        <button
+          class="close-button"
+          onclick="closeForm()">
+          ✕ Close Form
+        </button>
+
+      </div>
+
+      <div class="iframe-wrapper">
+
+        <iframe
+          id="googleForm"
+          title="Embedded Google Form">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section>
+
+    <h2>🧠 About the Research</h2>
+
+    <p>
+      <strong>Fairness-Aware AI Routine Generator</strong> is a research project
+      focused on exploring how Artificial Intelligence can be used to support
+      university academic routine generation.
+    </p>
+
+    <p>
+      University scheduling is more than assigning courses to available time slots.
+      A practical routine must consider the different and sometimes conflicting needs
+      of students, teachers, courses, laboratories, rooms, resources, workload, and time.
+    </p>
+
+    <p>The research therefore asks:</p>
+
+    <blockquote>
+      How can AI generate university routines that are not only feasible and personalized,
+      but also fair?
+    </blockquote>
+
+  </section>
+
+
+  <!-- =========================
+       OBJECTIVES
+  ========================= -->
+
+  <section>
+
+    <h2>🎯 Research Objectives</h2>
+
+    <ol>
+      <li>Investigate student preferences for academic routines.</li>
+      <li>Investigate teacher requirements and teaching preferences.</li>
+      <li>Identify academic, laboratory, resource, and scheduling constraints.</li>
+      <li>Explore fairness strategies for AI-based scheduling decisions.</li>
+      <li>Study how AI can balance satisfaction, efficiency, and fairness.</li>
+      <li>Establish a foundation for future AI-powered routine-generation software.</li>
+    </ol>
+
+  </section>
+
+
+  <!-- =========================
+       RESEARCH APPROACH
+  ========================= -->
+
+  <section>
+
+    <h2>🔬 Research Approach</h2>
+
+    <img
+      src="assets/07_research-approach.png"
+      alt="Research Approach"
+      class="center-image research-image">
+
+    <p>
+      The current phase focuses on <strong>research and data collection</strong>.
+    </p>
+
+    <p>
+      <strong>
+        Survey → Data Analysis → Constraint Identification →
+        Fairness Investigation → Research Findings
+      </strong>
+    </p>
+
+    <p>
+      The findings can then guide the design of the future software system.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       PARTICIPANTS
+  ========================= -->
+
+  <section>
+
+    <h2>👥 Who Can Participate?</h2>
+
+    <div class="people-grid">
+
+      <div class="person-card">
+
+        <img
+          src="assets/03_student.png"
+          alt="Student Perspective">
+
+        <h3>🎓 Students</h3>
+
+        <p>
+          The research investigates student preferences related to class timing,
+          workload, breaks, practical labs, campus transitions, assessments,
+          and routine structure.
+        </p>
+
+      </div>
+
+
+      <div class="person-card">
+
+        <img
+          src="assets/04_teacher.png"
+          alt="Teacher Perspective">
+
+        <h3>👨‍🏫 Teachers</h3>
+
+        <p>
+          The research investigates teaching workload, preferred teaching slots,
+          research time, consultation periods, breaks, course scheduling,
+          and resource requirements.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       KEY RESEARCH AREAS
+  ========================= -->
+
+  <section>
+
+    <h2>📚 Key Research Areas</h2>
+
+    <ul>
+      <li>🎓 Student scheduling</li>
+      <li>👨‍🏫 Faculty workload</li>
+      <li>📚 Course and laboratory scheduling</li>
+      <li>🏫 Resource constraints</li>
+      <li>⚖️ Fairness in AI decisions</li>
+      <li>🔄 Multi-semester fairness</li>
+    </ul>
+
+  </section>
+
+
+  <!-- =========================
+       FAIRNESS
+  ========================= -->
+
+  <section>
+
+    <h2>⚖️ Fairness in AI Scheduling</h2>
+
+    <p>
+      A central issue in academic scheduling is what happens when everyone's
+      preferred option cannot be satisfied.
+    </p>
+
+    <p>
+      For example, an AI system may need to choose between:
+    </p>
+
+    <ul>
+      <li>Maximizing the number of satisfied people</li>
+      <li>Distributing inconvenient slots fairly</li>
+      <li>Considering workload differences</li>
+      <li>Considering previous scheduling burdens</li>
+      <li>Prioritizing important resource constraints</li>
+    </ul>
+
+    <p>
+      The research explores how students and teachers believe such decisions
+      should be made.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       CONSTRAINTS
+  ========================= -->
+
+  <section>
+
+    <h2>🧪 Course, Laboratory &amp; Resource Constraints</h2>
+
+    <p>
+      Academic scheduling involves multiple real-world constraints.
+    </p>
+
+    <ul>
+      <li>Course and section availability</li>
+      <li>Theory and practical classes</li>
+      <li>Laboratory duration and workload</li>
+      <li>Room availability</li>
+      <li>Laboratory availability</li>
+      <li>Faculty availability</li>
+      <li>Assessment and examination conflicts</li>
+      <li>Time-slot limitations</li>
+    </ul>
+
+    <p>
+      A future AI system can use these constraints to generate feasible
+      candidate routines before applying fairness-based evaluation.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       IMPACT
+  ========================= -->
+
+  <section>
+
+    <h2>📊 Expected Research Impact</h2>
+
+    <ul>
+      <li>More balanced academic routines</li>
+      <li>Better understanding of scheduling preferences</li>
+      <li>More transparent AI scheduling decisions</li>
+      <li>Fairer distribution of scheduling burdens</li>
+      <li>Better resource-aware scheduling</li>
+      <li>Future AI-based routine generation</li>
+    </ul>
+
+  </section>
+
+
+  <!-- =========================
+       MULTI-SEMESTER FAIRNESS
+  ========================= -->
+
+  <section>
+
+    <h2>🔄 Multi-Semester Fairness</h2>
+
+    <p>
+      Fairness can extend beyond a single semester.
+    </p>
+
+    <p>
+      A future scheduling system could consider historical scheduling burden
+      so that the same group does not repeatedly receive inconvenient schedules.
+    </p>
+
+    <p>
+      This creates the possibility of <strong>long-term fairness</strong>
+      rather than evaluating every routine independently.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       FUTURE SOFTWARE
+  ========================= -->
+
+  <section>
+
+    <h2>💻 Future Software Development</h2>
+
+    <p>
+      The current work is <strong>research-focused</strong>.
+    </p>
+
+    <p>
+      Based on the research findings, we plan to develop a future software
+      system capable of generating university routines automatically.
+    </p>
+
+    <h3>Possible Future Features</h3>
+
+    <ul>
+      <li>🎓 Student preference management</li>
+      <li>👨‍🏫 Teacher preference management</li>
+      <li>📚 Course management</li>
+      <li>🧪 Laboratory scheduling</li>
+      <li>🏫 Room and resource management</li>
+      <li>⏰ Time-slot management</li>
+      <li>⚖️ Fairness-aware conflict resolution</li>
+      <li>📊 Routine quality and fairness analysis</li>
+      <li>🔄 Historical fairness tracking</li>
+      <li>🗓️ Automatic routine generation</li>
+      <li>📤 Routine export and sharing</li>
+    </ul>
+
+    <blockquote>
+      The software is planned future work and is not presented as a completed
+      outcome of the current research.
+    </blockquote>
+
+  </section>
+
+
+  <!-- =========================
+       SURVEY
+  ========================= -->
+
+  <section>
+
+    <h2>📝 Take Part in the Survey</h2>
+
+    <p>
+      Your response can help us understand how students and teachers believe
+      an AI-based university routine generator should make scheduling decisions.
+    </p>
+
+    <img
+      src="assets/11_survey.png"
+      alt="Survey Call to Action"
+      class="center-image survey-image">
+
+  </section>
+
+
+  <!-- =========================
+       FUTURE DEVELOPMENT
+  ========================= -->
+
+  <section>
+
+    <h2>🚀 Future Research &amp; Development</h2>
+
+    <ul>
+      <li>☐ Collect survey responses</li>
+      <li>☐ Clean and organize research data</li>
+      <li>☐ Analyze student preferences</li>
+      <li>☐ Analyze teacher preferences</li>
+      <li>☐ Identify major scheduling constraints</li>
+      <li>☐ Define appropriate fairness criteria</li>
+      <li>☐ Develop fairness metrics</li>
+      <li>☐ Convert preferences into structured parameters</li>
+      <li>☐ Develop a scheduling/optimization model</li>
+      <li>☐ Generate candidate routines</li>
+      <li>☐ Evaluate routine fairness</li>
+      <li>☐ Develop AI-based routine-generation software</li>
+      <li>☐ Build a web-based interface</li>
+      <li>☐ Test with real-world university scheduling data</li>
+      <li>☐ Compare against conventional scheduling approaches</li>
+    </ul>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECT LINKS
+  ========================= -->
+
+  <section>
+
+    <h2>🔗 Project Links</h2>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <tr>
+          <th>Resource</th>
+          <th>Link</th>
+        </tr>
+
+        <tr>
+          <td>📦 GitHub Repository</td>
+          <td>
+            <a
+              href="https://github.com/JamshedSifat/Fairness-Aware-AI-Routine"
+              target="_blank">
+              Fairness-Aware-AI-Routine
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>📝 Research Form 1</td>
+          <td>
+            <a
+              href="https://forms.gle/JrhqNBQxXvNGiwZL9"
+              target="_blank">
+              Google Form 1
+            </a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>📝 Research Form 2</td>
+          <td>
+            <a
+              href="https://forms.gle/xUdQqM3RbbN2jkDb8"
+              target="_blank">
+              Google Form 2
+            </a>
+          </td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      ⚖️ <strong>Fair Scheduling</strong>
+      • 🤖 <strong>Intelligent AI</strong>
+      • 🎓 <strong>Better Universities</strong>
+    </p>
+
+    <p>
+      Exploring how AI can make academic scheduling smarter,
+      more personalized, and fairer.
+    </p>
+
+  </footer>
+
+</div>
+
+
+<script>
+
+  function openForm(url, title) {
+
+    const viewer = document.getElementById("formViewer");
+    const iframe = document.getElementById("googleForm");
+    const titleElement = document.getElementById("formTitle");
+
+    iframe.src = url;
+    titleElement.textContent = title;
+
+    viewer.classList.add("active");
+
+    viewer.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+
+  function closeForm() {
+
+    const viewer = document.getElementById("formViewer");
+    const iframe = document.getElementById("googleForm");
+
+    viewer.classList.remove("active");
+
+    iframe.src = "";
+  }
+
+</script>
+
+</body>
+</html>

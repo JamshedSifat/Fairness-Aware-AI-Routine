@@ -1,66 +1,96 @@
+
 # ⚖️ Fairness-Aware AI Routine Generator
 
 <p align="center">
   <img src="https://img.shields.io/badge/Research-AI%20%26%20Fairness-6C63FF?style=for-the-badge">
   <img src="https://img.shields.io/badge/University-Scheduling-4285F4?style=for-the-badge">
   <img src="https://img.shields.io/badge/Survey-Google%20Forms-34A853?style=for-the-badge&logo=googleforms&logoColor=white">
-  <img src="https://img.shields.io/badge/Future%20Work-AI%20Software-00A67E?style=for-the-badge">
 </p>
 
 <p align="center">
-  <strong>Exploring Fair, Personalized & Intelligent University Routine Generation</strong>
+  <strong>বিশ্ববিদ্যালয়ের জন্য একটি ন্যায্য ও বুদ্ধিমান AI রুটিন তৈরির গবেষণা</strong>
 </p>
 
 <p align="center">
-  A research study exploring how Artificial Intelligence can support fair and effective
-  university academic scheduling by considering students, teachers, courses, resources,
-  workload, and scheduling constraints.
+  Exploring how Artificial Intelligence can help create university routines
+  by considering student preferences, teacher requirements, workload,
+  available resources, and fairness.
 </p>
+
+---
+
+## 📌 Project Overview
+
+**Fairness-Aware AI Routine Generator** একটি research-based project,
+যেখানে Artificial Intelligence ব্যবহার করে বিশ্ববিদ্যালয়ের জন্য
+আরও কার্যকর ও ন্যায্য academic routine তৈরির সম্ভাবনা অনুসন্ধান করা হচ্ছে।
+
+সাধারণত একটি বিশ্ববিদ্যালয়ের রুটিন তৈরির সময় শুধু ক্লাসের সময়
+নির্ধারণ করলেই হয় না। শিক্ষার্থী ও শিক্ষকদের পছন্দ, কোর্স,
+ল্যাবরেটরি, রুম, ওয়ার্কলোড এবং বিভিন্ন scheduling constraints
+একসঙ্গে বিবেচনা করতে হয়।
+
+এই গবেষণার মাধ্যমে আমরা বোঝার চেষ্টা করছি:
+
+> **AI কীভাবে এমন একটি বিশ্ববিদ্যালয় রুটিন তৈরি করতে পারে,
+> যেখানে feasibility, personal preferences এবং fairness
+> একসঙ্গে বিবেচনা করা হয়?**
+
+বর্তমানে প্রজেক্টটি research এবং survey data collection পর্যায়ে রয়েছে।
 
 ---
 
 ## 📋 Participate in Our Research
 
-<table align="center">
+তোমার মতামত আমাদের গবেষণার জন্য গুরুত্বপূর্ণ।
+
+নিচের survey-গুলোতে অংশগ্রহণ করে বিশ্ববিদ্যালয়ের routine scheduling
+সম্পর্কে তোমার মতামত জানাতে পারো।
+
+<table width="100%">
 <tr>
 
 <td align="center" width="50%">
-<p>
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">🔗 Open Form 1</a>
-</p>
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" width="240" alt="Form 1 QR Code">
-</a>
+
+## 📝 Form 1
+
+### Student & Teacher Survey
+
+শিক্ষার্থী ও শিক্ষকদের পছন্দ,
+ওয়ার্কলোড, প্রয়োজনীয়তা এবং
+scheduling constraints সম্পর্কে তথ্য সংগ্রহ করা হবে।
+
+<br>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" width="220" alt="Form 1 QR Code">
 
 <br><br>
 
-<h3>📝 Form 1</h3>
-
-<p>
-<strong>Student & Teacher Survey</strong><br>
-For collecting student and teacher preferences,
-requirements, workload, constraints, and scheduling needs.
-</p>
+<a href="https://forms.gle/JrhqNBQxXvNGiwZL9" target="_blank">
+  🔗 <strong>Open Form 1</strong>
+</a>
 
 </td>
 
 <td align="center" width="50%">
-<p>
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">🔗 Open Form 2</a>
-</p>
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" width="240" alt="Form 2 QR Code">
-</a>
+
+## 📝 Form 2
+
+### Time-Slot Rating Survey
+
+বিভিন্ন academic time-slot
+scenario সম্পর্কে ১–৫ স্কেলে
+তোমার মতামত প্রদান করার জন্য।
+
+<br>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" width="220" alt="Form 2 QR Code">
 
 <br><br>
 
-<h3>📝 Form 2</h3>
-
-<p>
-<strong>Time-Slot Rating Survey</strong><br>
-For rating different university scheduling
-time-slot scenarios using a 1–5 rating scale.
-</p>
+<a href="https://forms.gle/xUdQqM3RbbN2jkDb8" target="_blank">
+  🔗 <strong>Open Form 2</strong>
+</a>
 
 </td>
 
@@ -68,155 +98,192 @@ time-slot scenarios using a 1–5 rating scale.
 </table>
 
 <p align="center">
-<strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
+  📱 QR Code স্ক্যান করে অথবা Open Form লিংকে ক্লিক করে survey-তে অংশগ্রহণ করুন।
 </p>
-
-## 🧠 About the Research
-
-**Fairness-Aware AI Routine Generator** is a research project focused on exploring how Artificial Intelligence can be used to support university academic routine generation.
-
-University scheduling is more than assigning courses to available time slots. A practical routine must consider the different and sometimes conflicting needs of students, teachers, courses, laboratories, rooms, resources, workload, and time.
-
-The research therefore asks:
-
-> **How can AI generate university routines that are not only feasible and personalized, but also fair?**
 
 ---
 
 ## 🎯 Research Objectives
 
-The research aims to:
+এই গবেষণার মাধ্যমে আমরা:
 
-1. Investigate student preferences for academic routines.
-2. Investigate teacher requirements and teaching preferences.
-3. Identify academic, laboratory, resource, and scheduling constraints.
-4. Explore fairness strategies for AI-based scheduling decisions.
-5. Study how AI can balance satisfaction, efficiency, and fairness.
-6. Establish a foundation for future AI-powered routine-generation software.
+- শিক্ষার্থীদের routine preferences বুঝতে চাই।
+- শিক্ষকদের scheduling requirements অনুসন্ধান করতে চাই।
+- Academic ও laboratory constraints চিহ্নিত করতে চাই।
+- AI-based scheduling-এ fairness কীভাবে বিবেচনা করা যায় তা অনুসন্ধান করতে চাই।
+- Student satisfaction, efficiency এবং fairness-এর মধ্যে ভারসাম্য নিয়ে গবেষণা করতে চাই।
+- ভবিষ্যতে একটি AI-powered routine-generation system তৈরির ভিত্তি তৈরি করতে চাই।
 
 ---
 
-## 🔬 Research Approach
+## 🔬 Research Methodology
 
 <p align="center">
   <img src="assets/07_research-approach.png" alt="Research Approach" width="80%">
 </p>
 
-The current phase focuses on **research and data collection**.
+আমাদের বর্তমান research process:
 
-The general research flow is:
+```text
+Survey Collection
+       ↓
+Data Analysis
+       ↓
+Constraint Identification
+       ↓
+Fairness Investigation
+       ↓
+Research Findings
+       ↓
+Future Software Development
+```
 
-**Survey → Data Analysis → Constraint Identification → Fairness Investigation → Research Findings**
-
-The findings can then guide the design of the future software system.
+বর্তমান পর্যায়ে মূলত survey data সংগ্রহ এবং analysis-এর ওপর
+গুরুত্ব দেওয়া হচ্ছে।
 
 ---
 
 ## 👥 Who Can Participate?
 
-<table>
-<tr>
-<td width="50%" align="center">
-
-<img src="assets/03_student.png" alt="Student Perspective" width="80%">
-
 ### 🎓 Students
 
-The research investigates student preferences related to class timing, workload, breaks, practical labs, campus transitions, assessments, and routine structure.
+শিক্ষার্থীদের কাছ থেকে নিম্নলিখিত বিষয় সম্পর্কে মতামত সংগ্রহ করা হবে:
 
-</td>
-<td width="50%" align="center">
+- Class timing preferences
+- Daily workload
+- Break requirements
+- Practical and laboratory classes
+- Campus transitions
+- Assessment scheduling
+- Overall routine structure
 
-<img src="assets/04_teacher.png" alt="Teacher Perspective" width="100%">
+<img src="assets/03_student.png" alt="Student Perspective" width="70%">
+
+---
 
 ### 👨‍🏫 Teachers
 
-The research investigates teaching workload, preferred teaching slots, research time, consultation periods, breaks, course scheduling, and resource requirements.
+শিক্ষকদের কাছ থেকে নিম্নলিখিত বিষয় সম্পর্কে তথ্য সংগ্রহ করা হবে:
 
-</td>
-</tr>
-</table>
+- Teaching workload
+- Preferred teaching slots
+- Research time
+- Consultation periods
+- Break requirements
+- Course scheduling
+- Resource requirements
+
+<img src="assets/04_teacher.png" alt="Teacher Perspective" width="70%">
 
 ---
 
 ## 📚 Key Research Areas
 
-The research brings together:
+এই প্রজেক্টে আমরা কয়েকটি গুরুত্বপূর্ণ বিষয় নিয়ে কাজ করছি:
 
-- 🎓 Student scheduling
-- 👨‍🏫 Faculty workload
-- 📚 Course and laboratory scheduling
-- 🏫 Resource constraints
-- ⚖️ Fairness in AI decisions
-- 🔄 Multi-semester fairness
+| Research Area | Description |
+|---|---|
+| 🎓 Student Preferences | শিক্ষার্থীদের পছন্দ ও scheduling needs |
+| 👨‍🏫 Teacher Workload | শিক্ষকদের workload ও teaching preferences |
+| 📚 Course Scheduling | কোর্স ও সেকশন নির্ধারণ |
+| 🧪 Laboratory Scheduling | ল্যাবের সময়কাল ও availability |
+| 🏫 Resource Management | রুম ও অন্যান্য রিসোর্স |
+| ⚖️ AI Fairness | AI decision-making-এ ন্যায্যতা |
+| 🔄 Multi-Semester Fairness | একাধিক সেমিস্টারে scheduling burden |
 
 ---
 
-## ⚖️ Fairness in AI Scheduling
+## ⚖️ Understanding Fairness in Scheduling
 
-A central issue in academic scheduling is what happens when everyone's preferred option cannot be satisfied.
+বিশ্ববিদ্যালয়ের রুটিন তৈরির সময় প্রত্যেক শিক্ষার্থী ও শিক্ষককে
+তাদের পছন্দের সময় দেওয়া সবসময় সম্ভব নয়।
 
-For example, an AI system may need to choose between:
+উদাহরণস্বরূপ:
 
-- Maximizing the number of satisfied people
-- Distributing inconvenient slots fairly
-- Considering workload differences
-- Considering previous scheduling burdens
-- Prioritizing important resource constraints
+- কিছু শিক্ষার্থী সকালে ক্লাস পছন্দ করতে পারে।
+- কিছু শিক্ষক নির্দিষ্ট সময়ে ক্লাস নিতে চাইতে পারেন।
+- কোনো সময়ে রুম বা ল্যাবরেটরির availability নাও থাকতে পারে।
+- কিছু ব্যক্তির ওপর বারবার inconvenient time slot-এর চাপ পড়তে পারে।
 
-The research explores how students and teachers believe such decisions should be made.
+এক্ষেত্রে AI কীভাবে সিদ্ধান্ত নেবে?
+
+আমাদের গবেষণায় নিম্নলিখিত বিষয়গুলো অনুসন্ধান করা হচ্ছে:
+
+- কতজনের পছন্দ পূরণ করা হচ্ছে।
+- Scheduling burden কীভাবে বিতরণ করা হচ্ছে।
+- Workload differences বিবেচনা করা হচ্ছে কি না।
+- আগের সেমিস্টারের scheduling burden বিবেচনা করা যায় কি না।
+- গুরুত্বপূর্ণ resource constraints কীভাবে handle করা হবে।
+
+এখানে লক্ষ্য হলো AI-based scheduling decisions-এর fairness
+সম্পর্কে শিক্ষার্থী ও শিক্ষকদের মতামত বোঝা।
 
 ---
 
 ## 🧪 Course, Laboratory & Resource Constraints
 
-Academic scheduling involves multiple real-world constraints.
+একটি বাস্তব বিশ্ববিদ্যালয় রুটিন তৈরি করার সময় বিভিন্ন বিষয়
+বিবেচনা করতে হয়।
 
-These include:
+### Main Constraints
 
 - Course and section availability
 - Theory and practical classes
-- Laboratory duration and workload
+- Laboratory duration
 - Room availability
 - Laboratory availability
 - Faculty availability
-- Assessment and examination conflicts
-- Time-slot limitations
+- Workload limitations
+- Examination conflicts
+- Time-slot restrictions
 
-A future AI system can use these constraints to generate feasible candidate routines before applying fairness-based evaluation.
-
----
-
-## 📊 Expected Research Impact
-
-The research is intended to provide a foundation for:
-
-- More balanced academic routines
-- Better understanding of scheduling preferences
-- More transparent AI scheduling decisions
-- Fairer distribution of scheduling burdens
-- Better resource-aware scheduling
-- Future AI-based routine generation
+ভবিষ্যতের AI system এই constraints ব্যবহার করে সম্ভাব্য
+routines তৈরি করতে পারে এবং fairness-based evaluation-এর মাধ্যমে
+সেগুলো বিশ্লেষণ করতে পারে।
 
 ---
 
 ## 🔄 Multi-Semester Fairness
 
-Fairness can extend beyond a single semester.
+Fairness শুধুমাত্র একটি semester-এর routine-এর মধ্যে সীমাবদ্ধ
+থাকতে হবে এমন নয়।
 
-A future scheduling system could consider historical scheduling burden so that the same group does not repeatedly receive inconvenient schedules.
+ভবিষ্যতের একটি scheduling system আগের semester-গুলোর
+scheduling burden বিবেচনা করতে পারে।
 
-This creates the possibility of **long-term fairness** rather than evaluating every routine independently.
+উদাহরণস্বরূপ, কোনো group যদি একাধিক semester ধরে inconvenient
+time slot পায়, তাহলে ভবিষ্যতের routine তৈরির সময় এই historical
+information বিবেচনা করা যেতে পারে।
+
+এটি দীর্ঘমেয়াদি fairness নিয়ে গবেষণার একটি সম্ভাব্য দিক।
+
+---
+
+## 📊 Expected Research Contribution
+
+এই গবেষণা থেকে আমরা নিম্নলিখিত বিষয়গুলো সম্পর্কে আরও ভালো
+ধারণা পাওয়ার আশা করছি:
+
+- Student ও teacher scheduling preferences
+- গুরুত্বপূর্ণ academic constraints
+- Fairness-based scheduling decisions
+- Workload এবং resource considerations
+- Future AI routine-generation models
+
+গবেষণার ফলাফল ভবিষ্যতের সফটওয়্যার ডিজাইন ও development-এ
+সহায়তা করতে পারে।
 
 ---
 
 ## 💻 Future Software Development
 
-The current work is **research-focused**.
+বর্তমানে এই প্রজেক্টটি research-focused।
 
-Based on the research findings, we plan to develop a future software system capable of generating university routines automatically.
+Survey data analysis এবং research findings-এর ভিত্তিতে
+ভবিষ্যতে একটি AI-powered university routine-generation
+software তৈরির পরিকল্পনা রয়েছে।
 
-### Possible Future Features
+### সম্ভাব্য Features
 
 - 🎓 Student preference management
 - 👨‍🏫 Teacher preference management
@@ -225,110 +292,62 @@ Based on the research findings, we plan to develop a future software system capa
 - 🏫 Room and resource management
 - ⏰ Time-slot management
 - ⚖️ Fairness-aware conflict resolution
-- 📊 Routine quality and fairness analysis
+- 📊 Routine quality analysis
 - 🔄 Historical fairness tracking
 - 🗓️ Automatic routine generation
 - 📤 Routine export and sharing
 
-> **The software is planned future work and is not presented as a completed outcome of the current research.**
+> **Note:** এই সফটওয়্যারটি ভবিষ্যতের পরিকল্পিত কাজ।
+> বর্তমান গবেষণার অংশ হিসেবে completed software হিসেবে
+> উপস্থাপন করা হচ্ছে না।
 
 ---
 
-## 📝 Take Part in the Survey
+## 🚀 Research Roadmap
 
-Your response can help us understand how students and teachers believe an AI-based university routine generator should make scheduling decisions.
+- [ ] Survey responses সংগ্রহ করা
+- [ ] Research data clean ও organize করা
+- [ ] Student preferences বিশ্লেষণ করা
+- [ ] Teacher preferences বিশ্লেষণ করা
+- [ ] Scheduling constraints চিহ্নিত করা
+- [ ] Fairness criteria নির্ধারণ করা
+- [ ] Fairness metrics তৈরি করা
+- [ ] Preferences-কে structured parameters-এ রূপান্তর করা
+- [ ] Scheduling / optimization model তৈরি করা
+- [ ] Candidate routines তৈরি করা
+- [ ] Routine fairness মূল্যায়ন করা
+- [ ] AI-based routine-generation system তৈরি করা
+- [ ] Web-based interface তৈরি করা
+- [ ] Real-world scheduling data দিয়ে পরীক্ষা করা
+- [ ] Conventional scheduling methods-এর সঙ্গে তুলনা করা
+
+---
+
+## 📝 Survey Links
+
+| Survey | Link |
+|---|---|
+| 📝 Form 1 — Student & Teacher Survey | [Open Form 1](https://forms.gle/JrhqNBQxXvNGiwZL9) |
+| 📝 Form 2 — Time-Slot Rating Survey | [Open Form 2](https://forms.gle/xUdQqM3RbbN2jkDb8) |
+
+---
+
+## 🔗 Project Repository
 
 <p align="center">
-  <img src="assets/11_survey.png" alt="Survey Call to Action" width="85%">
-</p>
 
-### 🔗 Survey Links
-
-| Form | Link |
-|---|---|
-| 📝 Form 1 | https://forms.gle/JrhqNBQxXvNGiwZL9 |
-| 📝 Form 2 | https://forms.gle/xUdQqM3RbbN2jkDb8 |
-
-## 📋 Participate in Our Research
-
-<table align="center">
-<tr>
-
-<td align="center" width="50%">
-
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9" width="240" alt="Form 1 QR Code">
+<a href="https://github.com/JamshedSifat/Fairness-Aware-AI-Routine" target="_blank">
+  <strong>📦 View GitHub Repository</strong>
 </a>
 
-<br><br>
-
-<h3>📝 Form 1 — Student & Teacher Survey</h3>
-
-<p>
-Collects student and teacher preferences, requirements,
-workload, constraints, and scheduling needs.
 </p>
 
-<p>
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9">🔗 Open Form 1</a>
-</p>
-
-</td>
-
-<td align="center" width="50%">
-
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8" width="240" alt="Form 2 QR Code">
-</a>
-
-<br><br>
-
-<h3>📝 Form 2 — Time-Slot Rating Survey</h3>
-
-<p>
-Rates different university scheduling time-slot
-scenarios using a 1–5 rating scale.
-</p>
-
-<p>
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8">🔗 Open Form 2</a>
-</p>
-
-</td>
-
-</tr>
-</table>
+---
 
 <p align="center">
-<strong>📱 Scan the appropriate QR code to open the corresponding Google Form.</strong>
+  ⚖️ <strong>Researching Fairness. Building Smarter University Routines.</strong>
 </p>
 
----
-
-## 🚀 Future Research & Development
-
-- [ ] Collect survey responses
-- [ ] Clean and organize research data
-- [ ] Analyze student preferences
-- [ ] Analyze teacher preferences
-- [ ] Identify major scheduling constraints
-- [ ] Define appropriate fairness criteria
-- [ ] Develop fairness metrics
-- [ ] Convert preferences into structured parameters
-- [ ] Develop a scheduling/optimization model
-- [ ] Generate candidate routines
-- [ ] Evaluate routine fairness
-- [ ] Develop AI-based routine-generation software
-- [ ] Build a web-based interface
-- [ ] Test with real-world university scheduling data
-- [ ] Compare against conventional scheduling approaches
-
----
-
-## 🔗 Project Links
-
-| Resource | Link |
-|---|---|
-| 📦 GitHub Repository | [Fairness-Aware-AI-Routine](https://github.com/JamshedSifat/Fairness-Aware-AI-Routine) |
-| 📝 Research Form 1 | [Google Form 1](https://forms.gle/JrhqNBQxXvNGiwZL9) |
-| 📝 Research Form 2 | [Google Form 2](https://forms.gle/xUdQqM3RbbN2jkDb8) |
+<p align="center">
+  Made with ❤️ for AI Research & Future Software Development
+</p>

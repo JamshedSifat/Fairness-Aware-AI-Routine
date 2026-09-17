@@ -66,9 +66,15 @@ scheduling constraints সম্পর্কে তথ্য সংগ্রহ 
 
 <br><br>
 
-<a href="https://forms.gle/JrhqNBQxXvNGiwZL9" target="_blank">
-  🔗 <strong>Open Form 1</strong>
-</a>
+<p align="center">
+  <a href="https://forms.gle/JrhqNBQxXvNGiwZL9"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/🔗%20Open%20Form%201-4285F4?style=for-the-badge&logo=googleforms&logoColor=white"
+         alt="Open Form 1"
+         width="100%">
+  </a>
+</p>
 
 </td>
 
@@ -88,9 +94,15 @@ scenario সম্পর্কে ১–৫ স্কেলে
 
 <br><br>
 
-<a href="https://forms.gle/xUdQqM3RbbN2jkDb8" target="_blank">
-  🔗 <strong>Open Form 2</strong>
-</a>
+<p align="center">
+  <a href="https://forms.gle/xUdQqM3RbbN2jkDb8"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/🔗%20Open%20Form%202-4285F4?style=for-the-badge&logo=googleforms&logoColor=white"
+         alt="Open Form 2"
+         width="100%">
+  </a>
+</p>
 
 </td>
 

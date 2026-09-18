@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fairness-Aware AI Routine Generator — University timetable fairness research">
+  <title>Fairness-Aware AI Routine Generator</title>
+
+  <style>
+    :root{
+      --primary:#4f46e5;
+      --primary-dark:#3730a3;
+      --secondary:#0ea5e9;
+      --text:#172033;
+      --muted:#5f6b7a;
+      --bg:#f6f8fc;
+      --card:#ffffff;
+      --border:#e2e8f0;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:"Noto Sans Bengali","Nirmala UI","Segoe UI",Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.75;
+    }
+
+    a{text-decoration:none}
+
+    .container{
+      width:min(1150px,92%);
+      margin:auto;
+    }
+
+    /* Navigation */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:1rem;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+    }
+
+    .nav-links a{
+      color:#475569;
+      font-size:.9rem;
+      font-weight:700;
+    }
+
+    .nav-links a:hover{color:var(--primary)}
+
+    /* Hero / First View */
+    .hero{
+      padding:55px 0 45px;
+      background:
+        radial-gradient(circle at 5% 10%,#e5e7ff 0,transparent 30%),
+        radial-gradient(circle at 95% 10%,#dff7ff 0,transparent 28%),
+        linear-gradient(135deg,#fbfcff,#eef3ff);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1.25fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#e8eaff;
+      color:var(--primary-dark);
+      font-size:.8rem;
+      font-weight:900;
+      margin-bottom:15px;
+    }
+
+    h1{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:clamp(2.35rem,5vw,4.15rem);
+      line-height:1.08;
+      letter-spacing:-1.5px;
+      margin-bottom:18px;
+    }
+
+    h1 span{color:var(--primary)}
+
+    .hero-description{
+      color:var(--muted);
+      font-size:1.03rem;
+      max-width:620px;
+    }
+
+    .hero-description .bn{
+      display:block;
+      color:#263449;
+      font-weight:600;
+      margin-bottom:13px;
+    }
+
+    .hero-description .en{
+      display:block;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.94rem;
+      color:#64748b;
+    }
+
+    .quick-points{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:23px;
+    }
+
+    .quick-point{
+      background:rgba(255,255,255,.75);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:11px 13px;
+      font-size:.88rem;
+      font-weight:700;
+    }
+
+    /* Form panel in first view */
+    .form-panel{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:25px;
+      padding:25px;
+      box-shadow:0 18px 50px rgba(30,41,59,.11);
+    }
+
+    .form-panel-title{
+      text-align:center;
+      margin-bottom:18px;
+    }
+
+    .form-panel-title h2{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:1.65rem;
+      line-height:1.2;
+      margin-bottom:4px;
+    }
+
+    .form-panel-title p{
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    .qr-subtitle{
+      margin-top:8px;
+      color:#4f46e5;
+      font-family:"Segoe UI","Noto Sans Bengali",Arial,sans-serif;
+      font-size:.78rem;
+      font-weight:800;
+      text-align:center;
+      line-height:1.5;
+    }
+
+    .qr-subtitle span{
+      color:#94a3b8;
+      margin:0 5px;
+    }
+
+    .form-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .form-card{
+      border:1px solid var(--border);
+      border-radius:17px;
+      padding:16px;
+      text-align:center;
+      background:#fbfcff;
+    }
+
+    .form-card h3{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:1.2rem;
+      margin-bottom:2px;
+    }
+
+    .form-card .bn-title{
+      font-size:.85rem;
+      font-weight:700;
+      color:var(--primary-dark);
+      min-height:48px;
+    }
+
+    .qr{
+      cursor:zoom-in;
+      transition:transform .2s ease, box-shadow .2s ease;
+      width:180px;
+      height:180px;
+      max-width:100%;
+      display:block;
+      margin:12px auto;
+      border:6px solid #fff;
+      border-radius:10px;
+      box-shadow:0 5px 18px rgba(15,23,42,.12);
+    }
+
+    .qr:hover{
+      transform:scale(1.03);
+      box-shadow:0 10px 25px rgba(15,23,42,.18);
+    }
+
+    .open-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      min-height:52px;
+      border-radius:11px;
+      background:var(--primary);
+      color:white;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:1.3rem;
+      font-weight:900;
+      transition:.2s;
+    }
+
+    .open-btn:hover{
+      background:var(--primary-dark);
+      transform:translateY(-2px);
+    }
+
+    .full-link{
+      display:block;
+      margin-top:8px;
+      color:#2563eb;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:9px;
+      padding:7px 8px;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.7rem;
+      line-height:1.35;
+      word-break:break-all;
+    }
+
+    .qr-note{
+      text-align:center;
+      color:var(--muted);
+      font-size:.78rem;
+      margin-top:12px;
+    }
+
+    /* General sections */
+    section{padding:72px 0}
+
+    .section-title{
+      text-align:center;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:clamp(1.9rem,4vw,2.65rem);
+      line-height:1.2;
+      margin-bottom:12px;
+    }
+
+    .section-description{
+      max-width:850px;
+      margin:0 auto 34px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .section-description .bn{
+      display:block;
+      color:#334155;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .section-description .en{
+      display:block;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.92rem;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:25px;
+      box-shadow:0 8px 25px rgba(15,23,42,.05);
+    }
+
+    .icon{
+      font-size:2rem;
+      margin-bottom:7px;
+    }
+
+    .card h3{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:1.2rem;
+      margin-bottom:8px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .card .english{
+      display:block;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.82rem;
+      margin-top:9px;
+      color:#64748b;
+    }
+
+    /* How it works */
+    .how{
+      background:#fff;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:17px;
+    }
+
+    .step{
+      display:flex;
+      gap:15px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:20px;
+    }
+
+    .number{
+      flex:0 0 43px;
+      width:43px;
+      height:43px;
+      border-radius:50%;
+      background:var(--primary);
+      color:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-weight:900;
+    }
+
+    .step h3{
+      font-family:"Segoe UI",Arial,sans-serif;
+      margin-bottom:4px;
+    }
+
+    .step p{color:var(--muted)}
+
+    .step .en{
+      display:block;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.82rem;
+      margin-top:5px;
+      color:#64748b;
+    }
+
+    .flow{
+      margin-top:27px;
+      padding:20px;
+      background:#111827;
+      color:white;
+      border-radius:16px;
+      text-align:center;
+      overflow-x:auto;
+      white-space:nowrap;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-weight:800;
+    }
+
+    .flow span{color:#c7d2fe}
+    .arrow{color:#94a3b8;margin:0 7px}
+
+    /* Future */
+    .future-box{
+      background:linear-gradient(135deg,#eef2ff,#f1faff);
+      border:1px solid #dbe4ff;
+      border-radius:23px;
+      padding:31px;
+    }
+
+    .future-box h3{
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:1.45rem;
+      margin-bottom:9px;
+    }
+
+    .future-box p{color:var(--muted)}
+
+    .future-features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:11px;
+      margin-top:20px;
+    }
+
+    .future-feature{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:11px;
+      padding:12px;
+      text-align:center;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.85rem;
+      font-weight:800;
+    }
+
+    /* Final CTA */
+    .cta{
+      background:#111827;
+      color:white;
+      text-align:center;
+    }
+
+    .cta p{
+      max-width:800px;
+      margin:0 auto;
+      color:#d1d5db;
+    }
+
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:22px;
+      padding:14px 25px;
+      border-radius:12px;
+      background:#fff;
+      color:var(--primary-dark);
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-weight:900;
+    }
+
+    footer{
+      background:#0b1120;
+      color:#94a3b8;
+      text-align:center;
+      padding:30px 20px;
+      font-family:"Segoe UI",Arial,sans-serif;
+    }
+
+    footer strong{color:#fff}
+
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero{text-align:center}
+      .hero-description{margin:auto}
+      .form-list{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .future-features{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:650px){
+      .nav-links{display:none}
+      .hero{padding:40px 0 35px}
+      section{padding:55px 0}
+      .form-list,.cards,.steps,.future-features{grid-template-columns:1fr}
+      .quick-points{grid-template-columns:1fr}
+      .form-panel{padding:18px}
+      .qr{width:190px;height:190px}
+      h1{font-size:2.4rem}
+    }
+
+    /* ===== Responsive desktop + phone layout ===== */
+    @media (max-width:1100px){
+      .container{width:94%;}
+      .hero-grid{
+        grid-template-columns:minmax(0,.9fr) minmax(470px,1.1fr);
+        gap:25px;
+      }
+      .form-panel{padding:21px;}
+      .form-card{padding:14px;}
+      .qr{width:clamp(145px,15vw,185px);}
+    }
+
+    @media (max-width:760px){
+      .container{width:calc(100% - 28px);}
+      nav{position:relative;}
+      .nav-inner{min-height:58px;}
+      .nav-links{display:none;}
+      .hero{padding:32px 0 36px;}
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+      h1{
+        font-size:clamp(2.45rem,12vw,3.45rem);
+        line-height:1.02;
+        letter-spacing:-1.7px;
+      }
+      .hero-description{font-size:.97rem;}
+      .quick-points{grid-template-columns:1fr 1fr;gap:8px;}
+      .quick-point{font-size:.78rem;padding:9px 10px;}
+      .form-panel{padding:18px 13px;border-radius:21px;}
+      .form-list{grid-template-columns:1fr;gap:13px;}
+      .form-card{padding:17px 13px;}
+      .qr{width:min(210px,65vw);}
+      .open-btn{min-height:56px;font-size:1.02rem;}
+      section{padding:56px 0;}
+      .cards,.steps,.future-features{grid-template-columns:1fr;}
+      .section-title{font-size:2rem;}
+      .future-box{padding:23px 18px;}
+      .flow{overflow-x:auto;white-space:nowrap;}
+    }
+
+    @media (max-width:390px){
+      .container{width:calc(100% - 22px);}
+      h1{font-size:2.25rem;}
+      .quick-points{grid-template-columns:1fr;}
+      .form-panel{padding:15px 10px;}
+      .form-card{padding:15px 10px;}
+      .qr{width:185px;}
+      .full-link{font-size:.66rem;}
+    }
+  
+    /* ================= QR CODE ZOOM ================= */
+
+    .qr-modal{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(15,23,42,.84);
+      backdrop-filter:blur(5px);
+      -webkit-backdrop-filter:blur(5px);
+      cursor:zoom-out;
+    }
+
+    .qr-modal.active{
+      display:flex;
+    }
+
+    .qr-modal-content{
+      position:relative;
+      width:min(92vw,520px);
+      padding:18px;
+      background:#fff;
+      border-radius:22px;
+      box-shadow:0 25px 70px rgba(0,0,0,.35);
+      cursor:default;
+      animation:qrZoomIn .18s ease-out;
+    }
+
+    .qr-modal-image{
+      display:block;
+      width:100%;
+      aspect-ratio:1;
+      object-fit:contain;
+      background:#fff;
+      border-radius:12px;
+    }
+
+    .qr-modal-title{
+      margin-top:10px;
+      text-align:center;
+      color:#172033;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:.95rem;
+      font-weight:800;
+    }
+
+    .qr-close{
+      position:absolute;
+      top:-12px;
+      right:-12px;
+      width:40px;
+      height:40px;
+      border:0;
+      border-radius:50%;
+      background:#fff;
+      color:#172033;
+      font-family:"Segoe UI",Arial,sans-serif;
+      font-size:25px;
+      font-weight:700;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,.25);
+    }
+
+    .qr-close:hover{
+      background:#f1f5f9;
+    }
+
+    @keyframes qrZoomIn{
+      from{opacity:0;transform:scale(.88)}
+      to{opacity:1;transform:scale(1)}
+    }
+
+    @media (max-width:760px){
+      .qr-modal{padding:15px}
+      .qr-modal-content{
+        width:min(92vw,400px);
+        padding:12px;
+        border-radius:18px;
+      }
+      .qr-close{
+        top:-10px;
+        right:-10px;
+        width:36px;
+        height:36px;
+      }
+    }
+
+
+</style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">⚖️ Fairness-Aware AI Routine Generator</div>
+
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#how">How It Works</a>
+        <a href="#future">Future</a>
+        <a href="#forms">Forms</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =====================================================
+       FIRST VIEW
+       Left = Research introduction
+       Right = BOTH FORM LINKS + QR CODES
+  ====================================================== -->
+  <header class="hero">
+
+    <div class="container hero-grid">
+
+      <!-- LEFT -->
+      <div>
+
+        <div class="eyebrow">🎓 THESIS / RESEARCH PROJECT</div>
+
+        <h1>
+          Fairness-Aware
+          <br>
+          <span>AI Routine Generator</span>
+        </h1>
+
+        <div class="hero-description">
+
+          <span class="bn">
+            বিশ্ববিদ্যালয়ের ক্লাস রুটিন তৈরি করার সময় শুধু সময়সূচি
+            বানালেই হয় না। শিক্ষার্থী, শিক্ষক, কোর্স, ল্যাব, কক্ষ,
+            available time এবং বিভিন্ন scheduling constraint একসাথে
+            বিবেচনা করতে হয়।
+            <br><br>
+            এই গবেষণার লক্ষ্য হলো মানুষের বাস্তব মতামত ও প্রয়োজনীয়তা
+            সংগ্রহ করে ভবিষ্যতে এমন একটি AI/optimization-based system
+            নিয়ে কাজ করা, যা feasible এবং fairness-aware university
+            routine তৈরি করতে সাহায্য করতে পারে।
+          </span>
+
+          <span class="en">
+            University timetable generation involves many factors,
+            including students, teachers, courses, laboratories,
+            rooms, available time and scheduling constraints.
+            This research studies how real-world preferences and
+            requirements can be used toward an AI/optimization-based
+            approach for feasible and fairness-aware timetable generation.
+          </span>
+
+        </div>
+
+        <div class="quick-points">
+          <div class="quick-point">👨‍🎓 Student Preferences</div>
+          <div class="quick-point">👨‍🏫 Teacher Requirements</div>
+          <div class="quick-point">⚖️ Fairness</div>
+          <div class="quick-point">🤖 AI / Optimization</div>
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT: BOTH FORMS -->
+      <div class="form-panel" id="forms">
+
+        <div class="form-panel-title">
+          <h2>Participate in Our Research</h2>
+
+          <p>
+            গবেষণায় অংশগ্রহণ করতে নিচের প্রাসঙ্গিক
+            ফর্মগুলো পূরণ করুন।
+          </p>
+        </div>
+
+        <div class="form-list">
+
+          <!-- FORM 1 -->
+          <div class="form-card">
+
+            <h3>Form 1</h3>
+
+            <div class="bn-title">
+              Student & Teacher Survey
+              <br>
+              শিক্ষার্থী ও শিক্ষক জরিপ
+            </div>
+
+            <img
+              class="qr"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fforms.gle%2FJrhqNBQxXvNGiwZL9"
+              alt="Form 1 QR Code"
+            >
+
+            <a
+              class="open-btn"
+              href="https://forms.gle/JrhqNBQxXvNGiwZL9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📝 OPEN FORM 1
+            </a>
+
+            <a
+              class="full-link"
+              href="https://forms.gle/JrhqNBQxXvNGiwZL9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://forms.gle/JrhqNBQxXvNGiwZL9
+            </a>
+
+          </div>
+
+
+          <!-- FORM 2 -->
+          <div class="form-card">
+
+            <h3>Form 2</h3>
+
+            <div class="bn-title">
+              Time-Slot Rating Survey
+              <br>
+              সময়ের পছন্দ স্কেলিং (১-৫) জরিপ
+            </div>
+
+            <img
+              class="qr"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fforms.gle%2FxUdQqM3RbbN2jkDb8"
+              alt="Form 2 QR Code"
+            >
+
+            <a
+              class="open-btn"
+              href="https://forms.gle/xUdQqM3RbbN2jkDb8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📝 OPEN FORM 2
+            </a>
+
+            <a
+              class="full-link"
+              href="https://forms.gle/xUdQqM3RbbN2jkDb8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://forms.gle/xUdQqM3RbbN2jkDb8
+            </a>
+
+          </div>
+
+        </div>
+
+        <p class="qr-note">
+          📱 QR Code scan করুন অথবা সরাসরি OPEN FORM বাটনে ক্লিক করুন।
+          <br>
+          Scan the QR code or click the form button directly.
+        </p>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- RESEARCH -->
+    <section id="research">
+
+      <div class="container">
+
+        <h2 class="section-title">About the Research</h2>
+
+        <div class="section-description">
+
+          <span class="bn">
+            এই গবেষণায় মূলত বোঝার চেষ্টা করা হচ্ছে—
+            বিশ্ববিদ্যালয়ের রুটিন তৈরি করার সময় মানুষের preference,
+            academic constraints এবং fairness কীভাবে একসাথে
+            বিবেচনা করা যায়।
+          </span>
+
+          <span class="en">
+            The research explores how human preferences, academic
+            constraints and fairness considerations can be combined
+            in university timetable generation.
+          </span>
+
+        </div>
+
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="icon">🎓</div>
+            <h3>Student Preferences</h3>
+
+            <p>
+              শিক্ষার্থীরা কোন সময়ের ক্লাস পছন্দ করে, কোন সময়
+              অসুবিধাজনক এবং routine সম্পর্কে তাদের প্রয়োজনীয়তা কী—
+              survey-এর মাধ্যমে তা বোঝার চেষ্টা করা হবে।
+            </p>
+
+            <span class="english">
+              Understand preferred and inconvenient class times
+              from student responses.
+            </span>
+          </div>
+
+
+          <div class="card">
+            <div class="icon">👨‍🏫</div>
+            <h3>Academic Requirements</h3>
+
+            <p>
+              শিক্ষক, কোর্স, section, laboratory, room এবং available
+              time-এর মতো বাস্তব scheduling requirements বিবেচনা করা হবে।
+            </p>
+
+            <span class="english">
+              Consider teachers, courses, sections, laboratories,
+              rooms and availability.
+            </span>
+          </div>
+
+
+          <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>Fairness</h3>
+
+            <p>
+              fairness বলতে সবার জন্য একই schedule বোঝানো হচ্ছে না।
+              বরং বিভিন্ন group-এর preference এবং scheduling burden
+              কতটা balanced করা যায়, সেটি গবেষণার একটি গুরুত্বপূর্ণ দিক।
+            </p>
+
+            <span class="english">
+              Fairness focuses on balancing preferences and
+              scheduling burden rather than simply giving everyone
+              an identical schedule.
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+
+      <div class="container">
+
+        <h2 class="section-title">How the Research Works</h2>
+
+        <div class="section-description">
+
+          <span class="bn">
+            পুরো ধারণাটি সহজভাবে হলো—প্রথমে মানুষের কাছ থেকে
+            তথ্য সংগ্রহ করা হবে, এরপর সেই তথ্য বিশ্লেষণ করে
+            scheduling rules ও fairness-related criteria তৈরি করা হবে।
+            ভবিষ্যতে এসব তথ্য AI বা optimization algorithm-এ ব্যবহার
+            করে সম্ভাব্য routine তৈরি ও মূল্যায়ন করা যেতে পারে।
+          </span>
+
+          <span class="en">
+            The overall process starts with data collection,
+            followed by analysis, constraint modelling, fairness
+            criteria and eventually AI/optimization-based timetable
+            generation and evaluation.
+          </span>
+
+        </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="number">1</div>
+            <div>
+              <h3>Data Collection</h3>
+              <p>
+                শিক্ষার্থী ও শিক্ষকদের preference এবং scheduling
+                requirements survey-এর মাধ্যমে সংগ্রহ করা হবে।
+              </p>
+              <span class="en">Collect stakeholder preferences and requirements.</span>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="number">2</div>
+            <div>
+              <h3>Data Analysis</h3>
+              <p>
+                কোন সময়, class pattern এবং scheduling condition
+                বেশি গ্রহণযোগ্য তা বিশ্লেষণ করা হবে।
+              </p>
+              <span class="en">Analyze response patterns and time-slot preferences.</span>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="number">3</div>
+            <div>
+              <h3>Constraint Modelling</h3>
+              <p>
+                class, lab, teacher, room এবং time-এর প্রয়োজনীয়
+                নিয়ম ও সীমাবদ্ধতা model করা হবে।
+              </p>
+              <span class="en">Model academic and resource constraints.</span>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="number">4</div>
+            <div>
+              <h3>Fairness Criteria</h3>
+              <p>
+                preference satisfaction এবং scheduling burden-এর
+                মতো বিষয় কীভাবে পরিমাপ করা যায় তা নির্ধারণ করা হবে।
+              </p>
+              <span class="en">Define measurable fairness-related criteria.</span>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="number">5</div>
+            <div>
+              <h3>AI / Optimization</h3>
+              <p>
+                ভবিষ্যতে সংগৃহীত তথ্য ও constraints ব্যবহার করে
+                feasible candidate routine তৈরি করা যেতে পারে।
+              </p>
+              <span class="en">Generate candidate timetables using AI or optimization methods.</span>
+            </div>
+          </div>
+
+
+          <div class="step">
+            <div class="number">6</div>
+            <div>
+              <h3>Evaluation</h3>
+              <p>
+                তৈরি করা routine কতটা feasible, preference-aware
+                এবং fairness-related criteria পূরণ করছে তা মূল্যায়ন করা হবে।
+              </p>
+              <span class="en">Evaluate feasibility, preferences and fairness-related performance.</span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="flow">
+          <span>মানুষের মতামত</span>
+          <span class="arrow">→</span>
+          <span>তথ্য বিশ্লেষণ</span>
+          <span class="arrow">→</span>
+          <span>Constraints</span>
+          <span class="arrow">→</span>
+          <span>Fairness</span>
+          <span class="arrow">→</span>
+          <span>AI / Optimization</span>
+          <span class="arrow">→</span>
+          <span>Candidate Routine</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUTURE -->
+    <section id="future">
+
+      <div class="container">
+
+        <h2 class="section-title">Future of the Research</h2>
+
+        <div class="section-description">
+
+          <span class="bn">
+            বর্তমান গবেষণাটি মূলত বাস্তব মানুষের প্রয়োজন ও preference
+            বোঝার ভিত্তি তৈরি করছে। ভবিষ্যতে এই data এবং research findings
+            ব্যবহার করে একটি পূর্ণাঙ্গ AI-powered university routine
+            generation platform তৈরি করার সুযোগ থাকতে পারে।
+          </span>
+
+          <span class="en">
+            The current research builds a foundation from real-world
+            preferences and requirements. In the future, these findings
+            could support a complete AI-powered university timetable
+            generation platform.
+          </span>
+
+        </div>
+
+
+        <div class="future-box">
+
+          <h3>🤖 A Possible Future AI Routine Platform</h3>
+
+          <p>
+            একজন administrator course, section, teacher, room,
+            laboratory, available time এবং অন্যান্য constraints দিলে
+            ভবিষ্যতের system একাধিক feasible routine তৈরি করতে পারে।
+            এরপর প্রতিটি routine-এর বিভিন্ন performance measure
+            তুলনা করে decision-making-এ সহায়তা করা যেতে পারে।
+            <br><br>
+
+            <span style="font-family:'Segoe UI',Arial,sans-serif;">
+              A future system could accept academic data and constraints,
+              generate multiple feasible timetable candidates and provide
+              analytical information to support timetable planning.
+            </span>
+          </p>
+
+
+          <div class="future-features">
+            <div class="future-feature">🎓 Student Preferences</div>
+            <div class="future-feature">👨‍🏫 Teacher Availability</div>
+            <div class="future-feature">📚 Course & Section Data</div>
+            <div class="future-feature">🧪 Lab Scheduling</div>
+            <div class="future-feature">🏫 Room Allocation</div>
+            <div class="future-feature">⏰ Time Management</div>
+            <div class="future-feature">⚖️ Fairness Evaluation</div>
+            <div class="future-feature">🤖 AI / Optimization</div>
+            <div class="future-feature">📊 Routine Analysis</div>
+            <div class="future-feature">🔄 Historical Data</div>
+            <div class="future-feature">🗓️ Automatic Generation</div>
+            <div class="future-feature">📤 Export & Sharing</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL FORM CTA -->
+    <section class="cta">
+
+      <div class="container">
+
+        <h2 class="section-title" style="color:#fff;">
+          Your Response Matters
+        </h2>
+
+        <p>
+          আপনার একটি response এই গবেষণাকে বাস্তব মানুষের প্রয়োজন,
+          preference এবং scheduling সমস্যা আরও ভালোভাবে বুঝতে সাহায্য করবে।
+          কয়েক মিনিট সময় দিয়ে survey-তে অংশগ্রহণ করার জন্য ধন্যবাদ।
+          <br><br>
+          <span style="font-family:'Segoe UI',Arial,sans-serif;">
+            Your response can help us understand real-world needs and
+            improve the direction of this research.
+          </span>
+        </p>
+
+        <a
+          class="cta-btn"
+          href="#forms"
+        >
+          📝 Participate in the Research
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>
+      ⚖️ <strong>Fairness-Aware AI Routine Generator</strong>
+    </p>
+    <p style="margin-top:6px;">
+      University Timetable Research • AI • Fairness • Scheduling
+    </p>
+  </footer>
+
+
+  <!-- QR CODE ZOOM MODAL -->
+  <div class="qr-modal" id="qrModal" aria-hidden="true">
+    <div class="qr-modal-content" role="dialog" aria-modal="true" aria-label="QR Code Preview">
+      <button class="qr-close" id="qrClose" type="button" aria-label="Close QR Code">×</button>
+      <img class="qr-modal-image" id="qrModalImage" src="" alt="Enlarged QR Code">
+      <div class="qr-modal-title" id="qrModalTitle">QR Code</div>
+    </div>
+  </div>
+
+
+  <script>
+    const qrModal = document.getElementById("qrModal");
+    const qrModalImage = document.getElementById("qrModalImage");
+    const qrModalTitle = document.getElementById("qrModalTitle");
+    const qrClose = document.getElementById("qrClose");
+
+    document.querySelectorAll(".qr").forEach((qr) => {
+      qr.addEventListener("click", () => {
+        qrModalImage.src = qr.src;
+        qrModalImage.alt = qr.alt || "Enlarged QR Code";
+        qrModalTitle.textContent =
+          (qr.alt || "QR Code").replace(" QR Code", "") + " — Enlarged QR Code";
+
+        qrModal.classList.add("active");
+        qrModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeQRModal(){
+      qrModal.classList.remove("active");
+      qrModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      qrModalImage.src = "";
+    }
+
+    qrClose.addEventListener("click", closeQRModal);
+
+    qrModal.addEventListener("click", (event) => {
+      if(event.target === qrModal){
+        closeQRModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if(event.key === "Escape" && qrModal.classList.contains("active")){
+        closeQRModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
